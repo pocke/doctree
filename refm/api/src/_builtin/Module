@@ -320,16 +320,17 @@ case ではクラス、モジュールの所属関係をチェックすること
 
 @param const_name [[c:String]] または [[c:Symbol]] で指定します。
        なお、const_name には、"::" 演算子を含めることはできません。
-       つまり、トップレベルの定数しか指定できません。
+       つまり、self のモジュール直下に定義された定数しか指定できません。
 
 @param feature [[m:Kernel.#require]] と同様な方法で autoload する対象を指定する。
 
 @see [[m:Kernel.#autoload]]
 
-例:
-  Date # NameError: uninitialized constant Date
-  autoload :Date, 'date'
-  Date # => Date
+#@samplecode
+Date # NameError: uninitialized constant Date
+autoload :Date, 'date'
+Date # => Date
+#@end
 
 --- autoload?(const_name) -> String | nil
 autoload 定数がまだ定義されてない(ロードされていない) ときにそのパス名を返します。
